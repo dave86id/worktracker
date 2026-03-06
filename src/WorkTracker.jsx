@@ -559,7 +559,6 @@ export default function WorkTracker(){
   useEffect(()=>{if(loaded)saveData("wfw-clients",clients);},[clients,loaded]);
   useEffect(()=>{if(loaded)saveData("wfw-selected",selected);},[selected,loaded]);
 
-  if(!loaded)return <div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100vh",background:"#111",color:"#888",fontSize:14}}>Načítám data…</div>;
   const[view,setView]=useState("client");
   const[newTask,setNewTask]=useState("");
   const[newTime,setNewTime]=useState("");
@@ -659,6 +658,8 @@ export default function WorkTracker(){
     };
     reader.readAsText(file);e.target.value="";
   }
+
+  if(!loaded)return <div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100vh",background:"#111",color:"#888",fontSize:14}}>Načítám data…</div>;
 
   return(
     <div style={{display:"flex",height:"100vh",fontFamily:"'DM Sans','Segoe UI',sans-serif",background:"#111111",color:"#E8E8E8",overflow:"hidden"}}>
